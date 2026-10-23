@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: database-replication
+
+  datasource:
+    primary:
+      url: jdbc:mysql://localhost:3306/replication_db
+      username: chandan
+      password: Chandan93
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+    replica1:
+      url: jdbc:mysql://localhost:3307/replication_db
+      username: chandan
+      password: Chandan93
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+    replica2:
+      url: jdbc:mysql://localhost:3308/replication_db
+      username: chandan
+      password: Chandan93
+      driver-class-name: com.mysql.cj.jdbc.Driver

@@ -1,0 +1,34 @@
+services:
+  replica1:
+    image: mysql:8.0
+    container_name: mysql-replica1
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Chandan93
+      MYSQL_DATABASE: replication_db
+    command:
+      - --server-id=2
+      - --relay-log=relay-bin
+      - --read-only=ON
+    volumes:
+      - replica1_data:/var/lib/mysql
+
+  replica2:
+    image: mysql:8.0
+    container_name: mysql-replica2
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Chandan93
+      MYSQL_DATABASE: replication_db
+    command:
+      - --server-id=3
+      - --relay-log=relay-bin
+      - --read-only=ON
+    volumes:
+      - replica2_data:/var/lib/mysql
+
+volumes:
+  replica1_data:
+  replica2_data:
